@@ -54,8 +54,8 @@
             display-name = "Fn";
             bindings = <
 &kp F1  &kp F2  &kp F3     &kp F4  &kp F5     &kp F6  &tog 1                                      &mo 3   &kp F7          &kp F8          &kp F9          &kp F10          &kp F11  &kp F12
-&trans  &trans  &trans     &trans  &trans     &trans  &none                                       &none   &msc PG_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &trans   &trans
-&trans  &trans  &mkp RCLK  &trans  &mkp LCLK  &trans  &none   &trans  &trans      &trans  &trans  &none   &msc PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans
+&trans  &trans  &trans     &trans  &trans     &trans  &none                                       &none   &kp PG_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &trans   &trans
+&trans  &trans  &mkp RCLK  &trans  &mkp LCLK  &trans  &none   &trans  &trans      &trans  &trans  &none   &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans
 &trans  &trans  &trans     &trans  &trans     &trans                  &trans      &trans                  &trans          &mkp MB4        &trans          &mkp MB5         &trans   &trans
 &trans  &trans  &trans     &trans  &trans             &trans  &trans  &trans      &trans  &trans  &trans                  &trans          &trans          &trans           &trans   &trans
             >;
