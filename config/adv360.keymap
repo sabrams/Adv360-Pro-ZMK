@@ -23,6 +23,16 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        tm: thumb_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMB_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick_tap_ms = <175>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -35,7 +45,7 @@
 &kp TAB    &kp Q      &kp W     &kp E     &kp R      &kp T   &none                                                        &none       &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
 &kp TAB  &hm LSHFT A  &kp S   &lt 2 D   &kp F      &kp G   &mo 2     &kp HOME   &kp END       &kp PG_UP  &kp PG_DN      &none       &kp H   &kp J   &kp K      &kp L     &hm RSHFT SEMI  &kp SQT
 &kp LSHFT  &kp Z      &kp X     &kp C     &kp V      &kp B                         &kp HOME      &kp PG_UP                            &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp MINUS
-&kp LALT   &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &hm LCTRL BSPC  &hm LGUI DEL   &hm LALT ESC       &kp RET  &lt 4 RGUI   &kp SPACE              &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &mo 2
+&kp LALT   &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &tm LCTRL BSPC  &tm LGUI DEL   &tm LALT ESC       &kp RET  &lt 4 RGUI   &kp SPACE              &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &mo 2
             >;
         };
 
