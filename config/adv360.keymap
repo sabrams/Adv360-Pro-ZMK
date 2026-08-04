@@ -20,20 +20,33 @@
         // A is 29 (left), SEMI is 44 (right). Each shift only triggers its
         // hold for keys on the opposite half, so same-hand rolls ("as", "l;")
         // resolve as a tap immediately instead of racing the tapping term.
+        //
+        // Do NOT add hold-trigger-on-release here: it makes the positional
+        // check record the first key *released* rather than pressed, so a roll
+        // like "ar" hits the tapping term with nothing recorded and shifts.
+        //
+        // Do NOT add require-prior-idle-ms either: it would suppress the hold
+        // whenever the previous key was recent, which also kills *intentional*
+        // capitals mid-sentence ("the API" typed at speed).
+        //
+        // Cross-hand rolls are separated from real shifts by release order,
+        // which "balanced" keys off: release the mod first ("and" -> roll off
+        // A) resolves as a tap; release the other key first (A held through J)
+        // resolves as a hold. The tapping term is only the fallback for when
+        // no other key is involved.
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <175>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
             flavor = "balanced";
             hold-trigger-key-positions = <7 8 9 10 11 12 13
                                           21 22 23 24 25 26 27
                                           37 38 39 40 41 42 43 44 45
                                           53 54 55 56 57 58 59
                                           68 69 70 71 72 73 74 75>;
-            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
         };
 
@@ -41,15 +54,14 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <175>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
             flavor = "balanced";
             hold-trigger-key-positions = <0 1 2 3 4 5 6
                                           14 15 16 17 18 19 20
                                           28 29 30 31 32 33 34 35 36
                                           46 47 48 49 50 51 52
                                           60 61 62 63 64 65 66 67>;
-            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
         };
 
